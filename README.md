@@ -1,61 +1,60 @@
-# Break Breaker
+# Brick Breaker (C++ & SFML 3.0)
 
-A 2D arcade game inspired by the classic Brick Breaker, built in **C++** using **SFML 3.0.2** for my Programming Fundamentals course project.
-
-Control a paddle to bounce a ball, clear the brick grid, rack up points, and beat your saved high score without running out of lives.
+A classic arcade Brick Breaker game built in C++ using **SFML 3.0**, featuring 5 custom levels, 6 distinct brick types, 7 falling power-ups, dynamic ball heat trails, frostbite freeze effects, background music, and persistent score tracking.
 
 ---
 
 ## Features
 
-### Implemented
-* **Paddle & Ball Physics:** Smooth keyboard-controlled paddle movement with wall, paddle, and directional brick collision detection.
-* **4 Brick Types:** Normal, Strong, Unbreakable, and Explosive bricks stored and managed via a 2D array.
-* **Scoring & Lives System:** Real-time HUD displaying current score and remaining lives (starts with 3 lives).
-* **Game States:** Includes a Title Screen, Active Gameplay Screen, and Win/Lose End Screen.
-* **Persistent High Scores:** Automatically saves and loads the highest score locally using `highscore.txt`.
-
-### Planned / In Progress
-* Gradually increasing ball speed over time
-* Falling power-ups (enlarged paddle, slower ball, extra lives, multi-ball)
-* Negative effects (smaller paddle, faster ball, reversed controls)
-* Multiple handcrafted levels with increasing difficulty
-* Pause menu
-
----
-
-## Brick Types
-
-| Brick Type | Color | Behavior | Points |
-| :--- | :--- | :--- | :--- |
-| **Normal** | Red | Breaks in 1 hit | +10 |
-| **Strong** | Green | Takes 2 hits (turns into a Normal brick after the first hit) | +5 on first hit, +10 on break |
-| **Unbreakable** | Gray | Cannot be destroyed; deflects the ball | 0 |
-| **Explosive** | Yellow | Destroys itself and all surrounding breakable bricks in a 3×3 area | +10 per brick destroyed |
+* **5 Distinct Levels:** Gradually increasing difficulty with unique layouts, air gaps, and defensive formations:
+  1. *Level 1: Classic Intro*
+  2. *Level 2: Checkerboard*
+  3. *Level 3: Twin Towers*
+  4. *Level 4: The Bunker*
+  5. *Level 5: The Final Vault*
+* **6 Brick Types:**
+  * **Red Brick:** Standard 1-hit brick.
+  * **Green Brick:** Heavy 4-hit brick with progressive hit-flash and darkening damage states.
+  * **Gray Brick:** Unbreakable steel obstacle.
+  * **Yellow Brick (Bomb):** Explodes on impact, clearing adjacent bricks in a 3×3 radius with an expanding fireball animation.
+  * **Blue Brick (Frostbite):** Awards bonus points and freezes the ball in an icy crystal shell for 3 seconds (slowing it by 25%) before shattering into ice shards.
+  * **Orange Brick (Laser):** Fires an animated horizontal red laser beam that clears every breakable brick in that row.
+* **7 Falling Power-Ups:** Wide Paddle, Extra Life, Slow Ball, Shrink Paddle, Fast Ball, Reversed Controls, and Multi-Ball (up to 5 active balls simultaneously).
+* **Dynamic Visual Effects:** Speed-reactive ball trail that shifts from white to flickering fire at high speeds, combo multipliers, and staggered floating status popups.
+* **Persistent High Scores & Settings:** Saves both `Best Score` and `Previous Score` to `highscore.txt`, plus toggleable difficulty (`Normal` / `Hard`) and paddle speed (`Normal` / `Fast`).
 
 ---
 
 ## Controls
 
-| Key | Action |
+| Action | Key / Input |
 | :--- | :--- |
-| `Left Arrow` | Move paddle left |
-| `Right Arrow` | Move paddle right |
-| `Enter` | Start game / Return to main menu |
+| **Menu Navigation** | `Up` / `Down` Arrows + `Enter`, or `Left Click` |
+| **Move Paddle** | `Left` / `Right` Arrow Keys |
+| **Launch Ball** | `Space` |
+| **Pause / Resume** | `P` |
+| **Return to Main Menu** | `M` or `Esc` |
+| **Settings Toggles** | `1` (Difficulty), `2` (Paddle Speed) |
 
 ---
 
-## Tech Stack & Requirements
+## Project Structure & Required Assets
 
-* **Language:** C++ (C++17 or newer recommended for SFML 3)
-* **Library:** [SFML 3.0.2](https://www.sfml-dev.org/)
-* **IDE:** Visual Studio 2022 (or any C++ compiler configured with SFML 3.0.2)
+Ensure all 12 asset files sit in the same directory as the executable (or root project folder when running from Visual Studio):
 
----
-
-## Setup & Running the Game
-
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/your-username/break-breaker.git](https://github.com/your-username/break-breaker.git)
-   cd break-breaker
+```text
+Brick-Breaker/
+├── main.cpp
+├── README.md
+├── arial.ttf
+├── theme.ogg
+├── title.jpg
+├── background.jpg
+├── Ball.png
+├── Paddle.png
+├── Brick-Red.png
+├── Brick-Green.png
+├── Brick-Gray.png
+├── Brick-Yellow.png
+├── Brick-Blue.png
+└── Brick-Orange.png
