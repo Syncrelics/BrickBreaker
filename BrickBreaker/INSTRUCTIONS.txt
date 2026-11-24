@@ -1,0 +1,50 @@
+BRICK BREAKER - COMPILE AND RUN INSTRUCTIONS
+
+REQUIRED FILES
+Place all 12 asset files in the same folder as the compiled executable (.exe) or in the root project folder when running from Visual Studio:
+
+Font and Audio: arial.ttf, theme.ogg
+
+Screens and Sprites: title.jpg, background.jpg, Ball.png, Paddle.png
+
+Bricks: Brick-Red.png, Brick-Green.png, Brick-Gray.png, Brick-Yellow.png, Brick-Blue.png, Brick-Orange.png
+
+Note: highscore.txt is created automatically after your first completed game.
+
+COMPILING WITH VISUAL STUDIO 2022 (WINDOWS)
+This project uses SFML 3.0 and requires C++17 or newer.
+
+Create an Empty C++ Project and add the .cpp source file.
+
+Open Project Properties:
+
+General / C++ Language Standard: Set to ISO C++17 Standard (/std:c++17)
+
+C/C++ / General / Additional Include Directories: Add your SFML include folder path
+
+Linker / General / Additional Library Directories: Add your SFML lib folder path
+
+Linker / Input / Additional Dependencies:
+For Debug: sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-audio-d.lib;
+For Release: sfml-graphics.lib;sfml-window.lib;sfml-system.lib;sfml-audio.lib;
+
+Copy the matching SFML .dll files from SFML's bin folder into the same folder as the compiled .exe (x64\Debug or x64\Release).
+
+Press Ctrl + F5 to build and run.
+
+Then run the game:
+./BrickBreaker.exe
+
+CONTROLS
+
+Menu Navigation: Up / Down Arrow keys + Enter, or Left Mouse Click
+
+Move Paddle: Left / Right Arrow keys
+
+Launch Ball: Space
+
+Pause / Resume: P
+
+Return to Main Menu: M or Esc
+
+Settings Toggles: 1 (Normal / Hard difficulty), 2 (Normal / Fast paddle)
